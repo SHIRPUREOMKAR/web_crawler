@@ -14,6 +14,7 @@ def parse_arguments():
     parser.add_argument('-u', '--url', help='Website URL', required=True)
     parser.add_argument('-t', '--threshold', type=int, help='Recursion threshold', required=True)
     parser.add_argument('-o', '--output', help='Output file name')
+    parser.add_argument('-f', '--find', help='find a key-word')
     return parser.parse_args()
 
 def get_links(url):
