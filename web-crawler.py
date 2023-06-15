@@ -17,7 +17,7 @@ def parse_arguments():
     parser.add_argument('-f', '--find', help='find link with a specific key-word', nargs='+')
     return parser.parse_args()
 
-def get_links(url):
+def get_hrefs(url):
     try:
         response = requests.get(url)
         soup = BeautifulSoup(response.content, 'html.parser')
@@ -54,7 +54,7 @@ def filter_internal_links(links, domain):
 
     return internal_links
 
-def count_files_by_type(links):
+def cnt_file_type(links):
     file_types = {
         'html': [],
         'css': [],
@@ -92,10 +92,10 @@ def crawl(url, threshold, depth=1):
 
     visited_links.add(url)
     print(f'Processing: {url}')
-    links = get_links(url)
+    links = get_hrefs(url)
     print()
     internal_links = filter_internal_links(links, urlparse(url).netloc)
-    file_types = count_files_by_type(links)
+    file_types = cnt_file_type(links)
     total_files = sum(len(files) for files in file_types.values())
     file_counts[depth] = {'total_files': total_files, 'file_types': file_types}
     
