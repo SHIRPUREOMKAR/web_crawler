@@ -2,12 +2,6 @@
 
 A web scraper made as an endsem project for CS104.
 
-#### To use this project, clone this repository in your device by 
-
-```git
-git clone https://github.com/SHIRPUREOMKAR/web_crawler.git
-```
-
 ## Usage
 
 ```bash
